@@ -10,9 +10,10 @@ import ProfilePage from "./components/ProfilePage";
 import MedicationGuidePage from "./components/MedicationGuidePage";
 import PrecautionsPage from "./components/PrecautionsPage";
 import ProgressPage from "./components/ProgressPage";
+import RemindersPage from "./components/RemindersPage";
 import OnboardingPage, { UserData } from "./components/OnboardingPage";
 
-type Page = "home" | "nutrition" | "workouts" | "symptoms" | "profile" | "medication" | "precautions" | "progress";
+type Page = "home" | "nutrition" | "workouts" | "symptoms" | "profile" | "medication" | "precautions" | "progress" | "reminders";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>("home");
@@ -46,6 +47,8 @@ export default function App() {
         return <PrecautionsPage onNavigate={setCurrentPage} />;
       case "progress":
         return <ProgressPage />;
+      case "reminders":
+        return <RemindersPage onNavigate={setCurrentPage} />;
       default:
         return <HomePage onNavigate={setCurrentPage} />;
     }

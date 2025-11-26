@@ -13,9 +13,10 @@ import {
   ShieldAlert,
   Target,
   TrendingDown,
+  Bell,
 } from "lucide-react";
 
-type Page = "home" | "nutrition" | "workouts" | "symptoms" | "profile" | "medication" | "precautions" | "progress";
+type Page = "home" | "nutrition" | "workouts" | "symptoms" | "profile" | "medication" | "precautions" | "progress" | "reminders";
 
 interface HomePageProps {
   onNavigate: (page: Page) => void;
@@ -147,6 +148,29 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </div>
 
+      {/* Lembretes Button - Highlighted */}
+      <div className="px-6 py-2">
+        <button
+          onClick={() => onNavigate("reminders")}
+          className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl p-5 flex items-center justify-between shadow-lg hover:shadow-xl transition-all active:scale-[0.98] border-2 border-blue-400"
+        >
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+              <Bell className="w-6 h-6 text-white" />
+            </div>
+            <div className="text-left">
+              <h3 className="font-bold text-white text-lg">
+                Lembretes de Medicação
+              </h3>
+              <p className="text-sm text-blue-50">
+                Configure notificações push
+              </p>
+            </div>
+          </div>
+          <ChevronRight className="w-5 h-5 text-white" />
+        </button>
+      </div>
+
       {/* Precautions Button - Highlighted */}
       <div className="px-6 py-2">
         <button
@@ -188,7 +212,7 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                   Guia da Medicação
                 </h3>
                 <p className="text-sm text-gray-500">
-                  Instruções e lembretes
+                  Instruções e informações
                 </p>
               </div>
             </div>
